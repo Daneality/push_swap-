@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   node_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 17:31:49 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/18 19:57:02 by dsas             ###   ########.fr       */
+/*   Created: 2023/01/18 19:45:39 by dsas              #+#    #+#             */
+/*   Updated: 2023/01/18 19:49:00 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
-#include <stdio.h>
+#include "../includes/push_swap.h"
 
-void	print_list(t_list	*head)
+t_list		*new_node(int i)
 {
-	while (head)
-	{
-		printf("%d ", *(int *)head->content);
-		head = head->next;
-	}
-	printf("\n");
-}
+	int	*i_ptr;	
 
-int	main(int argc, char **argv)
-{
-	t_list	*stack_a;
-	t_list	*stack_b;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	if (!ft_get_input(argc, argv, &stack_a))
-	{
-		ft_lstclear(&stack_a, free);
-		return (-1);
-	}
-	print_list(stack_a);
+	i_ptr = malloc(sizeof(int));
+	if (!i_ptr)
+		return (NULL);
+	*i_ptr = i;
+	return (ft_lstnew(i_ptr));
 }
