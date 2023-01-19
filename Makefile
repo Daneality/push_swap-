@@ -6,7 +6,7 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 20:10:07 by dsas              #+#    #+#              #
-#    Updated: 2023/01/18 20:22:26 by dsas             ###   ########.fr        #
+#    Updated: 2023/01/19 13:23:02 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,11 @@ LIBFTPRINTF = libft
 # Source and object files
 SRCS =	push_swap.c \
 		input_checking/get_input.c \
-		utils/node_utils.c
+		utils/node_utils.c \
+		operations/push.c \
+		operations/revrotate.c \
+		operations/rotate.c \
+		operations/swap.c
 
 OBJ		= $(SRCS:.c=.o)
 

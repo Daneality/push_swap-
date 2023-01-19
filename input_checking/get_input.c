@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:17:04 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/18 20:25:59 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/19 11:20:53 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ long long	ft_atol(char *nptr)
 	return (sum);
 }
 
-int		check_arg(char *arg)
+int	check_arg(char *arg)
 {
 	int	i;
 
@@ -56,7 +56,7 @@ int		check_arg(char *arg)
 	return (1);
 }
 
-int		check_duplicates(int value, t_list **stack_a)
+int	check_duplicates(int value, t_list **stack_a)
 {
 	t_list	*tmp;
 

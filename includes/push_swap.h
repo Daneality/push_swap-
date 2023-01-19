@@ -6,11 +6,14 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:49:37 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/18 19:45:14 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/19 12:40:18 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "libft.h"
 
 int			ft_node_find(t_list *stack, int found);
 t_list		*new_node(int i);
@@ -33,3 +36,5 @@ int			ft_get_input(int argc, char **argv, t_list **stack_a);
 long long	ft_atol(char *str);
 int			check_arg(char *arg);
 int			check_duplicates(int value, t_list **stack_a);
+
+#endif
