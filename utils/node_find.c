@@ -6,13 +6,13 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:00:54 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/20 16:28:41 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/20 17:51:17 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int			ft_node_find(t_list *stack, int found)
+int	ft_node_find(t_list *stack, int found)
 {
 	int		pos;
 
@@ -29,14 +29,14 @@ int			ft_node_find(t_list *stack, int found)
 	return (-1);
 }
 
-int			ft_mid(int size)
+int	ft_mid(int size)
 {
 	if (size % 2 == 0)
 		return ((size / 2) + 1);
 	return (size / 2);
 }
 
-int			ft_min(t_list *stack)
+int	ft_min(t_list *stack)
 {
 	int	min;
 
@@ -45,14 +45,14 @@ int			ft_min(t_list *stack)
 	min = *(int *)(stack->content);
 	while (stack != NULL)
 	{
-		if ( *(int *)(stack->content) < min)
+		if (*(int *)(stack->content) < min)
 			min = *(int *)(stack->content);
 		stack = stack->next;
 	}
 	return (min);
 }
 
-int			ft_max(t_list *stack)
+int	ft_max(t_list *stack)
 {
 	int	max;
 
@@ -68,7 +68,7 @@ int			ft_max(t_list *stack)
 	return (max);
 }
 
-int			ft_next_max(t_list *stack, int max)
+int	ft_next_max(t_list *stack, int max)
 {
 	int	next_max;
 
@@ -83,7 +83,8 @@ int			ft_next_max(t_list *stack, int max)
 	}
 	while (stack != NULL)
 	{
-		if (*(int *)(stack->content) > next_max && *(int *)(stack->content) < max)
+		if (*(int *)(stack->content) > next_max \
+		&& *(int *)(stack->content) < max)
 			next_max = *(int *)(stack->content);
 		stack = stack->next;
 	}

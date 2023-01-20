@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:02:19 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/20 17:46:56 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/20 17:50:05 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 void	ft_sort_stack(t_list **list)
 {
-	int	i;
-	int	j;
-	int	len;
+	int		i;
+	int		j;
+	int		len;
 	t_list	*current;
-	int	*tmp;
+	int		*tmp;
 
-	if (! list)
-		return;
-	i = 0;
+	i = -1;
 	j = 0;
 	current = *list;
 	len = ft_lstsize(current) - 1;
-	while (i < len)
+	while (++i < len)
 	{
 		j = -1;
 		while (++j < len)
@@ -40,17 +38,16 @@ void	ft_sort_stack(t_list **list)
 			current = current->next;
 		}
 		current = *list;
-		i++;
 	}
 }
 
-t_list		*ft_copy_stack(t_list *stack)
+t_list	*ft_copy_stack(t_list *stack)
 {
 	t_list	*res;
 	t_list	*node_new;
 
 	res = NULL;
-	while(stack)
+	while (stack)
 	{
 		node_new = ft_lstnew(stack->content);
 		ft_lstadd_back(&res, node_new);
