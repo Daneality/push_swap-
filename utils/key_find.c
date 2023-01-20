@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:02:19 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/20 17:22:58 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/20 17:46:56 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,40 @@ void	ft_sort_stack(t_list **list)
 	}
 }
 
-t_list		*ft_copy_stack(t_list *stack_a)
+t_list		*ft_copy_stack(t_list *stack)
 {
-	return (stack_a);
+	t_list	*res;
+	t_list	*node_new;
+
+	res = NULL;
+	while(stack)
+	{
+		node_new = ft_lstnew(stack->content);
+		ft_lstadd_back(&res, node_new);
+		stack = stack->next;
+	}
+	return (res);
+}
+
+int	ft_next_key(t_list *stack, int slice_size, int slice_number)
+{
+	int	pos;
+	int	size;
+	int	key;
+
+	size = ft_lst_size(stack);
+	pos = size / slice_size;
+	pos *= slice_number;
+	key = ft_pos(stack, pos - 1);
+	return (key);
+}
+
+int	ft_key(t_list **stack_a, t_list **stack_key, int parts, int slice_number)
+{
+	int	key;
+
+	*stack_key = ft_copy_stack(*stack_a);
+	ft_sort_stack(stack_key);
+	key = ft_next_key(*stack_key, parts, slice_number);
+	return (key);
 }

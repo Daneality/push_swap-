@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:45:39 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/19 11:20:27 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/20 17:40:07 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,16 @@ t_list	*new_node(int i)
 		return (NULL);
 	*i_ptr = i;
 	return (ft_lstnew(i_ptr));
+}
+
+int	value_at_pos(t_list *stack, int pos)
+{
+	int	i;
+
+	i = 0;
+	while (i != pos)
+	{
+		stack = stack->next;
+	}
+	return (*(int *)(stack->content));
 }
