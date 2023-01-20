@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:49:37 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/20 16:05:24 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/20 17:22:40 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,11 @@ int			ft_mid(int size);
 int			ft_min(t_list *stack);
 int			ft_max(t_list *stack);
 int			ft_next_max(t_list *stack, int max);
+
+void		ft_sort_stack(t_list **list);
+t_list		*ft_copy_stack(t_list *stack_a);
+
+
+
 
 #endif
