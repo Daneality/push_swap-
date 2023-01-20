@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:49:37 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/19 12:40:18 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/20 16:05:24 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include <limits.h>
 
 int			ft_node_find(t_list *stack, int found);
 t_list		*new_node(int i);
@@ -36,5 +37,11 @@ int			ft_get_input(int argc, char **argv, t_list **stack_a);
 long long	ft_atol(char *str);
 int			check_arg(char *arg);
 int			check_duplicates(int value, t_list **stack_a);
+
+int			ft_node_find(t_list *stack, int found);
+int			ft_mid(int size);
+int			ft_min(t_list *stack);
+int			ft_max(t_list *stack);
+int			ft_next_max(t_list *stack, int max);
 
 #endif
