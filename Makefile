@@ -6,7 +6,7 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 20:10:07 by dsas              #+#    #+#              #
-#    Updated: 2023/01/20 17:21:28 by dsas             ###   ########.fr        #
+#    Updated: 2023/01/23 12:33:54 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS =	push_swap.c \
 		operations/push.c \
 		operations/revrotate.c \
 		operations/rotate.c \
-		operations/swap.c
+		operations/swap.c \
+		sorting/sort_big.c
 
 OBJ		= $(SRCS:.c=.o)
 
@@ -58,7 +59,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) clean -C $(LIBFTPRINTF)
-	
+
 re: fclean all
 
 .PHONY: all clean fclean re
