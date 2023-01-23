@@ -6,13 +6,13 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 20:10:07 by dsas              #+#    #+#              #
-#    Updated: 2023/01/23 12:33:54 by dsas             ###   ########.fr        #
+#    Updated: 2023/01/23 17:59:46 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
 NAME = push_swap
-CC = clang
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 DEBUG = -fsanitize=address
 LEAKS = leaks -atExit -- ./push-swap
@@ -37,7 +37,10 @@ SRCS =	push_swap.c \
 		operations/swap.c \
 		sorting/sort_big.c
 
-OBJ		= $(SRCS:.c=.o)
+OBJ = $(SRCS:.c=.o)
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) -o $@ $< 
 
 # Rules
 all: $(OBJ_PATH) $(NAME)
@@ -46,7 +49,6 @@ $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
 #$(DEBUG)
 $(NAME): $(OBJ)
-	$(MAKE) -C $(LIBFTPRINTF)
 	$(MAKE) -C $(LIBFTPRINTF) bonus
 	mv $(LIBFTPRINTF_A) libft.a
 	$(CC) $(CFLAGS) $(OBJ) -L. -lft -o $(NAME)

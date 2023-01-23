@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:31:49 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/20 17:22:13 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/23 16:24:03 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,15 @@ int	main(int argc, char **argv)
 		ft_lstclear(&stack_a, free);
 		return (-1);
 	}
+
 	print_list(stack_a);
+
+	ft_sort_big(&stack_a, &stack_b);
 	
+	print_list(stack_a);
+
+	print_list(stack_b);
+
 	ft_sort_stack(&stack_a);
 
 	print_list(stack_a);

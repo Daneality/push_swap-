@@ -6,7 +6,7 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 16:51:57 by dsas              #+#    #+#              #
-#    Updated: 2023/01/10 11:12:11 by dsas             ###   ########.fr        #
+#    Updated: 2023/01/23 17:34:33 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ BONUS_OBJS = $(BONUS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = libft.a
 
