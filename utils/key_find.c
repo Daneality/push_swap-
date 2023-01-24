@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:02:19 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/23 12:32:43 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/24 10:55:00 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_next_key(t_list *stack, int slice_size, int slice_number)
 	size = ft_lstsize(stack);
 	pos = size / slice_size;
 	pos *= slice_number;
-	key = value_at_pos(stack, pos - 1);
+	key = value_at_pos(stack, pos);
 	return (key);
 }
 

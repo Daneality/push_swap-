@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:33:33 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/23 16:29:01 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/24 15:04:04 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int 	all_pushed(t_list *stack_a, int key)
 {
 	while (stack_a)
 	{
-		if (*(int *)(stack_a->content) < key)
+		if (*(int *)(stack_a->content) <= key)
 		{
 			return (0);
 		}
@@ -108,4 +108,9 @@ void	ft_sort_big(t_list **stack_a, t_list **stack_b)
 	if (ft_issorted(*stack_a) == 1)
 		return ;
 	push_slice_b(stack_a, stack_b, &sorted_stack);
+	ft_push_mins_to_b(stack_a, stack_b);
+	if (!ft_issorted(*stack_a))
+		sort_three(stack_a);
+	ft_push_maxs_to_a(stack_a, stack_b);
+	//ft_lstclear(&sorted_stack, free);
 }

@@ -6,7 +6,7 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 20:10:07 by dsas              #+#    #+#              #
-#    Updated: 2023/01/23 17:59:46 by dsas             ###   ########.fr        #
+#    Updated: 2023/01/24 13:54:34 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,14 @@ SRCS =	push_swap.c \
 		operations/revrotate.c \
 		operations/rotate.c \
 		operations/swap.c \
-		sorting/sort_big.c
+		sorting/sort_big.c \
+		sorting/sort_small.c \
+		sorting/sort_big2.c
 
 OBJ = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) -o $@ $< 
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Rules
 all: $(OBJ_PATH) $(NAME)
