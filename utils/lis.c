@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:03:09 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/25 17:06:07 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/25 17:11:02 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	*lis_sub(int size, int lis_length, int *arr, int *index)
 
 int	*get_lis(int *arr, int size, int *lis_size, int i)
 {
-	int	tmp;
 	int	lis_length;
 	int	*answer;
 	int	*lis;
@@ -89,7 +88,23 @@ int	*get_lis(int *arr, int size, int *lis_size, int i)
 	return (answer);
 }
 
-ft_push_not_lls_to_b(t_list **stack_a, t_list **stack_b)
+int	int_in_arr(int n, int *arr, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (arr[i] == n)
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+void	ft_push_not_lls_to_b(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 	int		*list;
@@ -101,7 +116,7 @@ ft_push_not_lls_to_b(t_list **stack_a, t_list **stack_b)
 	put_min_elem_on_top(&tmp);
 	arr = stack_to_arr(tmp);
 	list = get_lis(&arr[1], arr[0], &list_size, 0);
-	arr[0] = get_stack_size(*stack_a);
+	arr[0] = ft_lstsize(*stack_a);
 	i = 1;
 	while (i <= arr[0])
 	{

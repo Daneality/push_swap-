@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:49:37 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/25 16:24:01 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/25 17:08:47 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,11 @@ void		ft_sort_small(t_list **stack_a, t_list **stack_b);
 void		ft_push_mins_to_b(t_list **stack_a, t_list **stack_b);
 void		sort_three(t_list **stack);
 void		ft_push_maxs_to_a(t_list **stack_a, t_list **stack_b);
+void		ft_push_not_lls_to_b(t_list **stack_a, t_list **stack_b);
+
 
 void		put_min_elem_on_top(t_list **stack);
-int			*stack_to_arr(t_list *stack)
+int			*stack_to_arr(t_list *stack);
 
 
 

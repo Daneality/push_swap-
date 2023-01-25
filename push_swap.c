@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:31:49 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/24 16:08:42 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/25 17:34:46 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		size;
+	//int		size;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -36,13 +36,20 @@ int	main(int argc, char **argv)
 		ft_lstclear(&stack_a, free);
 		return (-1);
 	}
-	size = ft_lstsize(stack_a);
-	if (size <= 10)
-		ft_sort_small(&stack_a, &stack_b);
-	else
-		ft_sort_big(&stack_a, &stack_b);
+	print_list(stack_a);
 
-	ft_sort_big(&stack_a, &stack_b);
+	ft_push_not_lls_to_b(&stack_a, &stack_b);
+	//put_min_elem_on_top(&stack_a);
+
+	print_list(stack_a);
+	print_list(stack_b);
+	// size = ft_lstsize(stack_a);
+	// if (size <= 10)
+	// 	ft_sort_small(&stack_a, &stack_b);
+	// else
+	// 	ft_sort_big(&stack_a, &stack_b);
+
+	// ft_sort_big(&stack_a, &stack_b);
 
 	//print_list(stack_a);
 

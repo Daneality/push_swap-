@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:34:52 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/25 16:23:53 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/25 17:33:30 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	put_min_elem_on_top(t_list **stack)
 	i = 0;
 	if (ind > stack_size / 2)
 	{
-		while (i < stack_size - ind)
+		while (*(int *)((*stack)->content) != min_elem)
 		{
 			ft_revrotate(stack);
 			i++;
@@ -56,7 +56,7 @@ void	put_min_elem_on_top(t_list **stack)
 	}
 	else
 	{
-		while (i < ind)
+		while (*(int *)((*stack)->content) != min_elem)
 		{
 			ft_rotate(stack);
 			i++;
