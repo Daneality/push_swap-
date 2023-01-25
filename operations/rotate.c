@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:41:57 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/19 12:54:29 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/25 15:18:29 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,10 @@ void	ft_rr(t_list **stack_a, t_list **stack_b)
 	ft_rotate(stack_a);
 	ft_rotate(stack_b);
 	write(1, "rr\n", 3);
+}
+
+void	ft_rr_no_output(t_list **stack_a, t_list **stack_b)
+{
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
 }

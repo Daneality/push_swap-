@@ -6,7 +6,7 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 20:10:07 by dsas              #+#    #+#              #
-#    Updated: 2023/01/24 13:54:34 by dsas             ###   ########.fr        #
+#    Updated: 2023/01/25 16:24:37 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRCS =	push_swap.c \
 		utils/node_utils.c \
 		utils/node_find.c \
 		utils/key_find.c \
+		utils/lis.c \
+		utils/stack_rotating.c \
 		operations/push.c \
 		operations/revrotate.c \
 		operations/rotate.c \
