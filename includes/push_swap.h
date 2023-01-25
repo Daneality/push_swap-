@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:49:37 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/24 13:56:41 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/24 16:18:40 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int			ft_node_find(t_list *stack, int found);
 t_list		*new_node(int i);
-void		ft_print_list(t_list *ptr);
+void		foo(void *ptr);
 
 void		ft_sa(t_list **stack_a);
 void		ft_sb(t_list **stack_b);

@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:31:49 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/24 15:03:53 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/24 16:08:42 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 
 	ft_sort_big(&stack_a, &stack_b);
 
-	print_list(stack_a);
+	//print_list(stack_a);
 
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);

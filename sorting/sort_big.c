@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:33:33 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/24 15:04:04 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/24 16:18:49 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,5 @@ void	ft_sort_big(t_list **stack_a, t_list **stack_b)
 	if (!ft_issorted(*stack_a))
 		sort_three(stack_a);
 	ft_push_maxs_to_a(stack_a, stack_b);
-	//ft_lstclear(&sorted_stack, free);
+	ft_lstclear(&sorted_stack, foo);
 }
