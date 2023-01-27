@@ -6,14 +6,14 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 20:10:07 by dsas              #+#    #+#              #
-#    Updated: 2023/01/27 14:07:22 by dsas             ###   ########.fr        #
+#    Updated: 2023/01/27 16:10:40 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
 NAME = push_swap
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 DEBUG = -fsanitize=address
 LEAKS = leaks -atExit -- ./push-swap
 

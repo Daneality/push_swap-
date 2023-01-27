@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:49:37 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/27 14:03:57 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/27 16:09:00 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,13 @@ int			ft_next_max(t_list *stack, int max);
 void		ft_sort_stack(t_list **list);
 t_list		*ft_copy_stack(t_list *stack_a);
 int			ft_key(t_list **stack_a, t_list **stack_key, int parts, int move);
-int			ft_next_key(t_list *stack, int slice_size, int slice_number);
 int			ft_issorted(t_list *stack);
 
 int			value_at_pos(t_list *stack, int pos);
-int			ft_slice_count(int size);
 
 void		ft_sort_big(t_list **stack_a, t_list **stack_b);
 void		ft_sort_small(t_list **stack_a, t_list **stack_b);
-void		ft_push_mins_to_b(t_list **stack_a, t_list **stack_b);
 void		sort_three(t_list **stack);
-void		ft_push_maxs_to_a(t_list **stack_a, t_list **stack_b);
 void		ft_push_not_lls_to_b(t_list **stack_a, t_list **stack_b);
 
 void		put_min_elem_on_top(t_list **stack);
