@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:17:04 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/19 11:20:53 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/26 17:43:17 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	check_duplicates(int value, t_list **stack_a)
 {
 	t_list	*tmp;
 
+	if (! *stack_a)
+		return (1);
 	tmp = *stack_a;
 	while (tmp)
 	{
@@ -72,9 +74,10 @@ int	check_duplicates(int value, t_list **stack_a)
 
 int	ft_get_input(int argc, char **argv, t_list **stack_a)
 {
-	long long	current;	
+	long long	current;
 	t_list		*node_new;
 
+	*stack_a = NULL;
 	if (argc <= 1)
 		return (0);
 	argc--;

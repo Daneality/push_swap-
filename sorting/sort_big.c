@@ -6,111 +6,80 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:33:33 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/24 16:18:49 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/27 14:03:17 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int 	all_pushed(t_list *stack_a, int key)
+void	exec_opposite_moves(t_price *price, t_list **stack_a, t_list **stack_b)
 {
-	while (stack_a)
+	if (price->move_count[0] > 0)
 	{
-		if (*(int *)(stack_a->content) <= key)
-		{
-			return (0);
-		}
-		stack_a = stack_a -> next;
+		ft_ra(stack_a);
+		price->move_count[0] -= 1;
 	}
-	return (1);
+	if (price->move_count[0] < 0)
+	{
+		ft_rra(stack_a);
+		price->move_count[0] += 1;
+	}
+	if (price->move_count[1] > 0)
+	{
+		ft_rb(stack_b);
+		price->move_count[1] -= 1;
+	}
+	if (price->move_count[1] < 0)
+	{
+		ft_rrb(stack_b);
+		price->move_count[1] += 1;
+	}
 }
 
-static void	ft_push_one_b(t_list **stack_a, t_list **stack_b, int content)
+void	exec_moves(t_price price, t_list **stack_a, t_list **stack_b)
 {
-	int	pos;
-	int	mid;
-	int	size;
-
-	size = ft_lstsize(*stack_a);
-	mid = ft_mid(size);
-	pos = ft_node_find(*stack_a, content);
-	while (pos)
+	while (price.move_count[0] != 0 || price.move_count[1] != 0)
 	{
-		if(pos <= mid)
+		if (price.move_count[0] > 0 && price.move_count[1] > 0)
 		{
-			ft_ra(stack_a);
-			pos--;
+			ft_rr(stack_a, stack_b);
+			price.move_count[0] -= 1;
+			price.move_count[1] -= 1;
+		}
+		else if (price.move_count[0] < 0 && price.move_count[1] < 0)
+		{
+			ft_rrr(stack_a, stack_b);
+			price.move_count[0] += 1;
+			price.move_count[1] += 1;
 		}
 		else
-		{
-			ft_rra(stack_a);
-			pos++;
-		}
-		if (ft_issorted(*stack_a))
-			return ;
-		if (pos == size)
-			break;
+			exec_opposite_moves(&price, stack_a, stack_b);
 	}
-	ft_pb(stack_a, stack_b);
-}
-
-static void	ft_push_to_b(t_list **stack_a, t_list **stack_b, int key)
-{
-	t_list	*current;
-	int		content;
-	int		min;
-
-	current = *stack_a;
-	while (! all_pushed(*stack_a, key))
-	{
-		content = *(int *)(current->content);
-		if (content <= key)
-		{
-			ft_push_one_b(stack_a, stack_b, content);
-			current = *stack_a;
-		}
-		min = ft_min(*stack_b);
-		if (content == min)
-			ft_rb(stack_b);
-		current = current->next;
-		if (!current)
-			current = *stack_a;
-	}
-}
-
-static void	push_slice_b(t_list **stack_a, t_list **stack_b, t_list **sorted_stack)
-{
-	int		move;
-	int		slice_amount;
-	int		current_key;
-	int		size;
-
-	size = ft_lstsize(*stack_a);
-	slice_amount = ft_slice_count(size);
-	move = 1;
-	current_key = ft_key(stack_a, sorted_stack, slice_amount, move);
-	move++;
-	ft_push_to_b(stack_a, stack_b, current_key);
-	if (ft_issorted(*stack_a))
-		return ;
-	while (move < slice_amount)
-	{
-		current_key = ft_next_key(*sorted_stack, slice_amount, move);
-		ft_push_to_b(stack_a, stack_b, current_key);
-		move++;
-	}
+	ft_pa(stack_a, stack_b);
 }
 
 void	ft_sort_big(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*sorted_stack;
+	int				tp_size;
+	int				tp_index;
+	int				size_a;
+	t_price			*prices;
 
-	if (ft_issorted(*stack_a) == 1)
+	if (ft_issorted(*stack_a))
 		return ;
-	push_slice_b(stack_a, stack_b, &sorted_stack);
-	ft_push_mins_to_b(stack_a, stack_b);
-	if (!ft_issorted(*stack_a))
-		sort_three(stack_a);
-	ft_push_maxs_to_a(stack_a, stack_b);
-	ft_lstclear(&sorted_stack, foo);
+	ft_push_not_lls_to_b(stack_a, stack_b);
+	while (*stack_b)
+	{
+		prices = get_transf_price(*stack_a, *stack_b, &tp_size);
+		tp_index = pick_best_move_index(prices, tp_size);
+		exec_moves(prices[tp_index], stack_a, stack_b);
+		free(prices);
+	}
+	size_a = ft_lstsize(*stack_a);
+	if (ft_node_find(*stack_a, ft_max(*stack_a)) <= size_a / 2)
+		while (ft_node_find(*stack_a, ft_max(*stack_a)) != size_a - 1)
+			ft_ra(stack_a);
+	else
+		while (ft_node_find(*stack_a, ft_max(*stack_a)) != size_a - 1)
+			ft_rra(stack_a);
 }

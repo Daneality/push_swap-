@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:34:52 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/25 17:33:30 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/27 13:02:06 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	put_min_elem_on_top(t_list **stack)
 	int	i;
 
 	min_elem = ft_min(*stack);
-	ind = value_at_pos(*stack, min_elem);
+	ind = ft_node_find(*stack, min_elem);
 	stack_size = ft_lstsize(*stack);
 	i = 0;
 	if (ind > stack_size / 2)
@@ -62,4 +62,11 @@ void	put_min_elem_on_top(t_list **stack)
 			i++;
 		}
 	}
+}
+
+void	throw_error(t_list **a)
+{
+	ft_lstclear(a, free);
+	ft_putstr_fd("Error\n", 2);
+	exit(0);
 }

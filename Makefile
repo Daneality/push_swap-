@@ -6,7 +6,7 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 20:10:07 by dsas              #+#    #+#              #
-#    Updated: 2023/01/25 16:24:37 by dsas             ###   ########.fr        #
+#    Updated: 2023/01/27 14:07:22 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,11 @@ CFLAGS = -Wall -Wextra -Werror -g
 DEBUG = -fsanitize=address
 LEAKS = leaks -atExit -- ./push-swap
 
+BONUS = checker
+BONUS_MAIN = checker.c
+
+MAIN = push_swap.c
+
 # Libraries
 LIBFTPRINTF_A = libft/libft.a
 
@@ -26,12 +31,12 @@ OBJ_PATH = obj/
 LIBFTPRINTF = libft
 
 # Source and object files
-SRCS =	push_swap.c \
-		input_checking/get_input.c \
+SRCS =	input_checking/get_input.c \
 		utils/node_utils.c \
 		utils/node_find.c \
 		utils/key_find.c \
 		utils/lis.c \
+		utils/operations.c \
 		utils/stack_rotating.c \
 		operations/push.c \
 		operations/revrotate.c \
@@ -39,7 +44,8 @@ SRCS =	push_swap.c \
 		operations/swap.c \
 		sorting/sort_big.c \
 		sorting/sort_small.c \
-		sorting/sort_big2.c
+		sorting/transfer.c \
+		sorting/sort_small2.c
 
 OBJ = $(SRCS:.c=.o)
 
@@ -47,7 +53,7 @@ OBJ = $(SRCS:.c=.o)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Rules
-all: $(OBJ_PATH) $(NAME)
+all: $(NAME) bonus
 
 $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
@@ -55,16 +61,23 @@ $(OBJ_PATH):
 $(NAME): $(OBJ)
 	$(MAKE) -C $(LIBFTPRINTF) bonus
 	mv $(LIBFTPRINTF_A) libft.a
-	$(CC) $(CFLAGS) $(OBJ) -L. -lft -o $(NAME)
-	mv $(OBJ) $(OBJ_PATH)
+	$(CC) $(CFLAGS) $(OBJ) $(MAIN) -L. -lft -o $(NAME)
+
+bonus: $(BONUS)
+
+$(BONUS): $(OBJ)
+	$(MAKE) -C $(LIBFTPRINTF) bonus
+	mv $(LIBFTPRINTF_A) libft.a
+	@$(CC) $(CFLAGS) $^ $(BONUS_MAIN) -L. -lft -o $@
 
 clean:
-	rm -rf $(OBJ_PATH)
+	rm -rf $(OBJ)
+	rm -rf libft.a
 	$(MAKE) clean -C $(LIBFTPRINTF)
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) clean -C $(LIBFTPRINTF)
+	rm -f $(BONUS)
 
 re: fclean all
 

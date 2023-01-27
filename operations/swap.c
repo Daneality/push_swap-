@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:26:43 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/25 15:16:01 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/27 14:01:16 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,20 @@ void	ft_ss(t_list **stack_a, t_list **stack_b)
 	(*stack_a)->content = (*stack_a)->next->content;
 	(*stack_a)->next->content = tmp;
 	write(1, "ss\n", 3);
+}
+
+void	ft_ss_no_output(t_list **stack_a, t_list **stack_b)
+{
+	int	*tmp;
+
+	if (!*stack_a || !(*stack_a)->next || !*stack_b || !(*stack_b)->next)
+		return ;
+	tmp = (*stack_b)->content;
+	(*stack_b)->content = (*stack_b)->next->content;
+	(*stack_b)->next->content = tmp;
+	tmp = (*stack_a)->content;
+	(*stack_a)->content = (*stack_a)->next->content;
+	(*stack_a)->next->content = tmp;
 }
 
 void	ft_swap(t_list **stack)

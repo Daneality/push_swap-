@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:46:25 by dsas              #+#    #+#             */
-/*   Updated: 2022/12/28 17:05:20 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/26 17:00:22 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
+
+char	*get_next_line(int fd);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_memmove(void *dest, const void *src, size_t len);
+size_t	ft_strlen(const char *s);
+int		ft_strchr_line(const char *s, int c);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 400
+# endif
 
 typedef struct s_list
 {
@@ -53,6 +65,8 @@ char	*ft_strnstr(const char *s, const char *find, size_t slen);
 char	*ft_strdup(const char *s);
 
 void	*ft_memset(void *s, int c, size_t n);
+
+int		ft_strcmp(char *s1, char *s2);
 
 void	ft_bzero(void *s, size_t n);
 
