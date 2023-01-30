@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:34:25 by dsas              #+#    #+#             */
-/*   Updated: 2023/01/27 14:42:04 by dsas             ###   ########.fr       */
+/*   Updated: 2023/01/30 17:40:42 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,28 @@ int	get_stack_mid_val(t_list *stack)
 
 void	sort_three(t_list **stack)
 {
-	int	first;
-	int	second;
-	int	third;
+	int	top;
+	int	mid;
+	int	bottom;
 
-	first = *(int *)((*stack)->content);
-	second = *(int *)((*stack)->next->content);
-	third = *(int *)((*stack)->next->next->content);
-	if ((first > second) && (first < third))
+	top = *(int *)((*stack)->content);
+	mid = *(int *)((*stack)->next->content);
+	bottom = *(int *)((*stack)->next->next->content);
+	if (top > mid && bottom > top)
 		ft_sa(stack);
-	else if ((first > second) && (second > third))
+	else if (top > mid && mid > bottom)
 	{
 		ft_sa(stack);
 		ft_rra(stack);
 	}
-	else if ((third > second) && (third < first))
+	else if (bottom > mid && top > bottom)
 		ft_ra(stack);
-	else if ((second > third) && (third < first))
+	else if (mid > bottom && bottom > top)
 	{
 		ft_sa(stack);
 		ft_ra(stack);
 	}
-	else if ((second > first) && (first > third))
+	else if (mid > top && top > bottom)
 		ft_rra(stack);
 }
 
@@ -102,6 +102,6 @@ void	ft_sort_small(t_list **stack_a, t_list **stack_b)
 	}
 	else if (size_a == 3)
 		sort_three(stack_a);
-	else if (size_a >= 4 && size_a <= 6)
+	else if (size_a >= 4 && size_a <= 5)
 		sort_four_to_six(stack_a, stack_b);
 }
